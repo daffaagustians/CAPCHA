@@ -35,6 +35,36 @@ public class Minimarket {
         } else {
             System.out.println("Username atau password salah. Login gagal.");
         }
+        boolean loginSuccessful = false;
+
+        while (!loginSuccessful) {
+        System.out.println("Silakan coba login kembali:");
+
+        // Meminta input dari pengguna kembali
+        System.out.print("Username: ");
+        inputUsername = scanner.nextLine();
+        System.out.print("Password: ");
+        inputPassword = scanner.nextLine();
+        System.out.print("Captcha (Isi hasil penjumlahan " + num1 + " + " + num2 + "): ");
+        inputCaptcha = scanner.nextInt();
+        scanner.nextLine();
+
+        // Memeriksa apakah input username dan password sesuai
+        if (username.equalsIgnoreCase(inputUsername) && password.equals(inputPassword)) {
+        // Memeriksa apakah hasil captcha sesuai
+            if (captchaResult == inputCaptcha) {
+                System.out.println("Login berhasil!");
+                loginSuccessful = true; // Keluar dari loop jika login berhasil
+            } else {
+                System.out.println("Captcha salah. Silakan coba lagi.");
+        }
+    }   else {
+        System.out.println("Username atau password salah. Silakan coba lagi.");
+    }
+}
+
+
+
          // Mendapatkan tanggal dan waktu sekarang
         LocalDateTime currentDateTime = LocalDateTime.now();
 
